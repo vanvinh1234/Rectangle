@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="400" style = "border: 1px solid green;"></canvas>
+<script>
+    function Rectangle(width,height){
+        this.height = height;
+        this.width = width;
+        this.getWidth = function () {
+            return this.width;
+        };
+        this.getHeight = function () {
+            return this.height;
+        };
+        this.setWidth = function(){
+            this.width = width;
+        };
+        this.setHeight = function () {
+            this.height = height;
+        };
+        this.getArea = function () {
+            return this.width*this.height;
+        };
+        this.getPerimeter = function () {
+            return (width + this.height)*2;
+        };
+        this.Draw = function () {
+          let ctx = document.getElementById("myCanvas").getContext("2d");
+          ctx.beginPath();
+          ctx.rect(100,100,this.width,this.height);
+          ctx.fillstyle= "red";
+          ctx.strokeStyle="green";
+          ctx.stroke();
+          ctx.fill();
+        }
+    };
+    let rectangle = new Rectangle(200,100);
+    rectangle.Draw();
+    area = rectangle.getArea();
+    perimeter = rectangle.getPerimeter();
+    document.write("dien tich hinh chu nhat:" + area);
+    document.write("chu vi hinh chu nhat :" +perimeter);
+</script>
+</body>
+</html>
